@@ -50,8 +50,6 @@ export const useMoods = () => {
 
   const cambiarEmoji = () => {
     setEmojiActual(emojiActual + 1);
-    console.log(emojiActual)
-    console.log(listaEmojis.length)
     if (emojiActual >= listaEmojis.length) {
       reinciarEmoji()
     } else {
@@ -62,6 +60,7 @@ export const useMoods = () => {
   return {
     //Props
     emoji,
+    setEmoji,
     //Methods
     cambiarEmoji,
     reinciarEmoji

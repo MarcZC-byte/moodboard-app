@@ -3,28 +3,29 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import { globalStyles } from '../styles/global-styles'
 import { StatusBar } from 'expo-status-bar'
 import { useMoods } from '../hooks/useMoods'
+import { IoniconName } from '../hooks/useNotes'
 
-const MoodCard = () => {
 
-    const {
-        emoji,
+type Props = {
+    emoji: IoniconName,
+    cambiarEmoji: () => void;
+    reinciarEmoji: () => void;
+};
 
-        cambiarEmoji,
-        reinciarEmoji
 
-    } = useMoods()
+const MoodCard = ({ emoji, cambiarEmoji, reinciarEmoji }: Props) => {
 
     return (
-        <View style={globalStyles.calculatorContainer}>
+        <View>
             <View style={globalStyles.row} >
                 <TouchableOpacity style={globalStyles.button} onPress={reinciarEmoji}>
-                    <Text>Reinicar</Text>
+                    <Ionicons name="refresh-outline" size={70}></Ionicons>
                 </TouchableOpacity>
                 <TouchableOpacity >
                     <Ionicons name={emoji} size={100} color="black" />
                 </TouchableOpacity>
                 <TouchableOpacity style={globalStyles.button} onPress={cambiarEmoji}>
-                    <Text>Cambiar</Text>
+                    <Ionicons name="arrow-forward-outline" size={70}></Ionicons>
                 </TouchableOpacity>
             </View>
             <StatusBar style="auto" />
